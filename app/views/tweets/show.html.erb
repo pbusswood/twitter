@@ -1,0 +1,6 @@
+<h1>A Tweet!</h1>
+
+<div>
+  <p><%= @tweet.content %></p>
+  <p><%= time_ago_in_words(@tweet.created_at) + ' ago' %></p>
+</div>

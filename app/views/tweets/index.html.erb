@@ -1,0 +1,8 @@
+<h1>My Tweets</h1>
+
+<% @tweets.each do |tweet| %>
+<div>
+  <p><%= tweet.content %></p>
+  <%= link_to time_ago_in_words(tweet.created_at) + ' ago', tweet_path(tweet) %>
+</div>
+<% end %>
