@@ -1,8 +1,8 @@
 <h1>Log in to shitty Twitter</h1>
 
-<%= form_tag do |f| %>
+<%= form_for @user, url: login_path do |f| %>
 
-<div>Email: <%= @user.email %></div>
+<div>Email: <%= f.text_field :email %></div>
 
 <%= f.submit "Log in" %>
 

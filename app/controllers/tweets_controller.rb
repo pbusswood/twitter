@@ -1,4 +1,6 @@
 class TweetsController < ApplicationController
+  before_action :check_user_login
+
   def index
     @tweets = Tweet.all
   end
@@ -13,7 +15,7 @@ class TweetsController < ApplicationController
 
   def create
     @tweet = Tweet.create(tweet_params)
-    @tweet.user = User.first
+    @tweet.user = @current_user
     @tweet.save
     redirect_to tweets_path
   end
@@ -25,5 +27,9 @@ class TweetsController < ApplicationController
 
   def tweet_params
     params.require(:tweet).permit(:content)
+  end
+
+  def check_user_login
+    @current_user = User.find(session[:user_id])
   end
 end

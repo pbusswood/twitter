@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_user_login
+  before_action :check_user_login, :only => [:show]
 
   def new
     @user = User.new
