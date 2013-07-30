@@ -2,13 +2,14 @@ require 'test_helper'
 
 class LoginControllerTest < ActionController::TestCase
   test "should get login" do
-    get :login
+    get :new_session
     assert_response :success
   end
 
   test "should get logout" do
     get :logout
-    assert_response :success
+    assert_response :redirect
+    assert_redirected_to login_path
   end
 
 end

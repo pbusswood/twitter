@@ -28,8 +28,4 @@ class TweetsController < ApplicationController
   def tweet_params
     params.require(:tweet).permit(:content)
   end
-
-  def check_user_login
-    @current_user = User.find(session[:user_id])
-  end
 end
